@@ -177,6 +177,25 @@
 
         document.getElementById('celularForm').addEventListener('submit', function(e) {
             e.preventDefault();
+
+            var accesorios 
+                = document.getElementById("accesorios").value;
+
+            var funda;
+            if (accesorios.value == "funda")
+            {
+                funda = "Funda = 200";
+            }
+
+            var mica;
+            if (accesorios.value == "micas")
+            {
+                mica = " Micas = 50";
+            }
+
+
+
+
             alert('Formulario enviado correctamente. ¡Gracias por su preferencia!');
         });
     </script>
