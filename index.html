@@ -16,7 +16,7 @@
 
         <main>
             <form id="celularForm" class="main-form">
-                <!-- TIPO -->
+                <!-- TIPO ASIGNADO PAMELA -->
                 <div class="form-group">
                     <label class="form-label">TIPO:</label>
                     <div class="radio-group">
@@ -35,7 +35,7 @@
                     </div>
                 </div>
 
-                <!-- MARCA -->
+                <!-- MARCA ASIGNADO JOHAN -->
                 <div class="form-group">
                     <label for="marca" class="form-label">MARCA:</label>
                     <select id="marca" name="marca" required>
@@ -49,7 +49,7 @@
                     </select>
                 </div>
 
-                <!-- ACCESORIOS -->
+                <!-- ACCESORIOS ASIGANDO A EDER -->
                 <div class="form-group">
                     <label class="form-label">ACCESORIOS:</label>
                     <div class="checkbox-group">
@@ -96,7 +96,7 @@
                     </div>
                 </div>
 
-                <!-- PLAN -->
+                <!-- PLAN ASIGNADO A GABRIEL-->
                 <div class="form-group">
                     <label for="plan" class="form-label">PLAN:</label>
                     <select id="plan" name="plan" required>
@@ -131,7 +131,7 @@
                     </div>
                 </div>
 
-                <!-- MONEDA -->
+                <!-- MONEDA  ASIGNADO A CARO-->
                 <div class="form-group">
                     <label for="moneda" class="form-label">MONEDA:</label>
                     <select id="moneda" name="moneda" required onchange="toggleTipoCambio()">
@@ -175,9 +175,62 @@
             }
         }
 
-        document.getElementById('celularForm').addEventListener('submit', function(e) {
+        document.getElementById('celularForm').addEventListener('submit', 
+        
+        function(e) {
             e.preventDefault();
-            alert('Formulario enviado correctamente. ¡Gracias por su preferencia!');
+
+            var mensaje = "Formulario enviado correctamente. ¡Gracias por su preferencia!";
+
+            const marca = document.getElementById("marca").value;
+            if (marca == "alcatel")
+            {
+                mensaje = mensaje + "\n\n" + "Marca: Alcatel";
+            }
+            else if (marca == "zte")
+            {
+                mensaje = mensaje +  "\n\n" +  "Marca: ZTE";
+            }
+            else if (marca == "nokia")
+            {
+                mensaje = mensaje +  "\n\n" +  "Marca: NOKIA";
+            }
+            else if (marca == "motorola")
+            {
+                mensaje = mensaje +  "\n\n" +  "Marca: MOTOROLA";
+            }
+            else if (marca == "lg")
+            {
+                mensaje = mensaje +  "\n\n" +  "Marca: LG";
+            }
+            else if (marca == "samsung")
+            {
+                mensaje = mensaje +  "\n\n" +  "Marca: SAMSUNG";
+            }
+
+            const moneda = document.getElementById("moneda").value;
+            if (moneda == "pesos")
+            {
+                mensaje = mensaje +  "\n\n" + "El valor esta en Pesos";
+            }
+
+        
+
+
+            var formulario =  document.getElementById('celularForm');
+            formulario.accesorios.value 
+
+            var accesorios = document.getElementById("accesorios");
+            accesorios.value
+
+
+
+
+
+
+
+
+            alert(mensaje);
         });
     </script>
 </body>
