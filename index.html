@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CELULAR CENTER</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CELULAR CENTER</h1>
+            <p class="subtitle">Venta, Mantenimiento, Reparación, Refacciones, Accesorios, Soporte, Capacitación</p>
+            <p class="brands">De las marcas: Samsung, Nokia, Motorola, Sony, LG, Apple</p>
+        </header>
+
+        <main>
+            <form id="celularForm" class="main-form">
+                <!-- TIPO -->
+                <div class="form-group">
+                    <label class="form-label">TIPO:</label>
+                    <div class="radio-group">
+                        <label class="radio-label">
+                            <input type="radio" name="tipo" value="nuevo" required>
+                            Nuevo
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="tipo" value="usado" required>
+                            Usado
+                        </label>
+                        <label class="radio-label">
+                            <input type="radio" name="tipo" value="reparacion" required>
+                            Reparación
+                        </label>
+                    </div>
+                </div>
+
+                <!-- MARCA -->
+                <div class="form-group">
+                    <label for="marca" class="form-label">MARCA:</label>
+                    <select id="marca" name="marca" required>
+                        <option value="">Seleccione una marca</option>
+                        <option value="alcatel">Alcatel</option>
+                        <option value="zte">ZTE</option>
+                        <option value="nokia">Nokia</option>
+                        <option value="motorola">Motorola</option>
+                        <option value="lg">LG</option>
+                        <option value="samsung">Samsung</option>
+                    </select>
+                </div>
+
+                <!-- ACCESORIOS -->
+                <div class="form-group">
+                    <label class="form-label">ACCESORIOS:</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="funda">
+                            Funda
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="mica">
+                            Mica Protectora
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="cargador">
+                            Cargador
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="audifonos">
+                            Audífonos
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="cable">
+                            Cable USB
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="powerbank">
+                            Power Bank
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="soporte">
+                            Soporte para Auto
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="memoria">
+                            Tarjeta de Memoria
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="limpieza">
+                            Kit de Limpieza
+                        </label>
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="accesorios" value="selfie">
+                            Palo Selfie
+                        </label>
+                    </div>
+                </div>
+
+                <!-- PLAN -->
+                <div class="form-group">
+                    <label for="plan" class="form-label">PLAN:</label>
+                    <select id="plan" name="plan" required>
+                        <option value="">Seleccione un plan</option>
+                        <option value="prepago">Prepago</option>
+                        <option value="plan-jr">Plan JR</option>
+                        <option value="plan-control">Plan Control</option>
+                        <option value="plan-acceso-total">Plan Acceso Total</option>
+                    </select>
+                </div>
+
+                <!-- CLIENTE -->
+                <div class="form-group">
+                    <label class="form-label">CLIENTE:</label>
+                    <div class="cliente-fields">
+                        <div class="input-group">
+                            <label for="nombre">Nombre:</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="direccion">Dirección:</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="telefono">Teléfono:</label>
+                            <input type="tel" id="telefono" name="telefono" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MONEDA -->
+                <div class="form-group">
+                    <label for="moneda" class="form-label">MONEDA:</label>
+                    <select id="moneda" name="moneda" required onchange="toggleTipoCambio()">
+                        <option value="">Seleccione moneda</option>
+                        <option value="pesos">Pesos</option>
+                        <option value="dolares">Dólares</option>
+                    </select>
+                </div>
+
+                <!-- TIPO DE CAMBIO -->
+                <div class="form-group" id="tipoCambioGroup" style="display: none;">
+                    <label for="tipoCambio" class="form-label">TIPO DE CAMBIO:</label>
+                    <input type="text" id="tipoCambio" name="tipoCambio" placeholder="Ej: 18.50">
+                </div>
+
+                <!-- BOTÓN ENVIAR -->
+                <div class="form-group">
+                    <button type="submit" class="submit-btn">Calcular Total</button>
+                </div>
+            </form>
+        </main>
+
+        <footer>
+            <p class="footer-text">Elaborado por: Richart · Curso de Desarrollo Web · © 2025</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleTipoCambio() {
+            const moneda = document.getElementById('moneda').value;
+            const tipoCambioGroup = document.getElementById('tipoCambioGroup');
+            const tipoCambio = document.getElementById('tipoCambio');
+            
+            if (moneda === 'dolares') {
+                tipoCambioGroup.style.display = 'block';
+                tipoCambio.required = true;
+            } else {
+                tipoCambioGroup.style.display = 'none';
+                tipoCambio.required = false;
+                tipoCambio.value = '';
+            }
+        }
+
+        document.getElementById('celularForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Formulario enviado correctamente. ¡Gracias por su preferencia!');
+        });
+    </script>
+</body>
+</html>
