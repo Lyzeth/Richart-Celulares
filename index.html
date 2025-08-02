@@ -176,9 +176,29 @@
         }
 
         document.getElementById('celularForm').addEventListener('submit', function(e) {
+            
             e.preventDefault();
+            
+            var formulario=document.getElementsByName("celularForm").value;
+            var tipo;
+            if (formulario.tipo.value == "nuevo")
+                {
+                    tipo="nuevo";
+                }
+
+            else if (formulario.tipo.value == "usado")
+                {
+                    tipo="usado";
+                }
+
+            else if (formulario.tipo.value == "reparacion")
+                {
+                    tipo="reparacion";
+                }
+            
             alert('Formulario enviado correctamente. ¡Gracias por su preferencia!');
-        });
+            });
+
     </script>
 </body>
 </html>
